@@ -1,5 +1,8 @@
 
 
+let humanScore;
+let computerScore;
+
 function getComputerChoice() {
     // Get a random number to choose which action the computer will take.
     let computerChoice = Math.floor(Math.random() * 3);
@@ -24,9 +27,9 @@ function getHumanChoice() {
     return humanChoice.toUpperCase();
 }
 
-// function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
 
-// }
+}
 
 
 
