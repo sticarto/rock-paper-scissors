@@ -28,6 +28,11 @@ function playGame() {
     // Move score variables here
     let humanScore = 0;
     let computerScore = 0;
+    let computerSelection = getComputerChoice();
+
+    const buttonRock = document.querySelector('#rock');
+    const buttonPaper = document.querySelector('#paper');
+    const buttonScissors = document.querySelector('#scissor');
 
     // Move playRound function here. This lets it access the score variables.
     function playRound(humanChoice, computerChoice) {
@@ -49,16 +54,30 @@ function playGame() {
         }
     }
 
+
     // Call playRound 5 times
-    for (let i = 0; i < 5; i++) {
-        // get choices
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
+    // for (let i = 0; i < 5; i++) {
+    //     // get choices
+    //     let humanSelection = getHumanChoice();
+    //     let computerSelection = getComputerChoice();
 
-        // run playround
-        playRound(humanSelection, computerSelection);
+    //     // run playround
+    //     playRound(humanSelection, computerSelection);
 
-    }
+    // }
+
+
+    buttonRock.addEventListener('click', () => {
+        playRound('ROCK', computerSelection);
+    })
+    buttonPaper.addEventListener('click', () => {
+        playRound('PAPER', computerSelection);
+    })
+    buttonScissors.addEventListener('click', () => {
+        playRound('SCISSORS', computerSelection);
+    })
+
+
 
     // Display the score
     console.log(`The Final Score: HUMAN = ${humanScore} | COMPUTER = ${computerScore}`);
