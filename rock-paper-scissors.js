@@ -33,6 +33,7 @@ function playGame() {
     const div = document.querySelector('div');
     const scoreboard = document.createElement('p');
     const result = document.createElement('p');
+    const winnerOfGame = document.createElement('p');
     const buttonRock = document.querySelector('#rock');
     const buttonPaper = document.querySelector('#paper');
     const buttonScissors = document.querySelector('#scissor');
@@ -40,6 +41,7 @@ function playGame() {
     // append elements to div
     div.appendChild(scoreboard);
     div.appendChild(result);
+    div.appendChild(winnerOfGame);
 
     // Move playRound function here. This lets it access the score variables.
     function playRound(humanChoice, computerChoice) {
@@ -58,6 +60,13 @@ function playGame() {
         } else {
             result.textContent = `You Lost! ${humanChoice} < ${computerChoice}`;
             computerScore += 1;
+        }
+
+        if (humanScore === 5 && humanScore > computerScore) {
+            winnerOfGame.textContent = 'Human Wins!';
+        }
+        if (computerScore === 5 && computerScore > humanScore) {
+            winnerOfGame.textContent = 'Computer Wins!'
         }
     }
 
@@ -88,8 +97,7 @@ function playGame() {
     })
 
 
-    // while no one reaches five points
-    // run game
+
 
     // Display the score
     // console.log(`The Final Score: HUMAN = ${humanScore} | COMPUTER = ${computerScore}`);
